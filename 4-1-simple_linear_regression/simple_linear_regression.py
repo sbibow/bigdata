@@ -5,10 +5,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
-# TODO import dataset
+# import dataset
 dataset = pd.read_csv('salary_data.csv')
-X = ...
-y = ...
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, 1].values
 
 # TODO split the dataset into training and test set (use train_test_split(...))
 X_train, X_test, y_train, y_test = ...
