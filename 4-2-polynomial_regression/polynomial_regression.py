@@ -49,7 +49,7 @@ fig.add_scatter(x=amazon_X_test.flatten(), y=amazon_y_pred.flatten(), name='pred
 regression = linear_model.LinearRegression()
 # transform input data into format for quadratic polynomial
 # TODO generate polynomial transform
-poly = PolynomialFeatures(degree=6)
+poly = PolynomialFeatures(degree=10)
 
 # now transform all data
 X = poly.fit_transform(amazon_X)

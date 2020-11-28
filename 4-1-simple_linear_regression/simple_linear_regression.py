@@ -10,6 +10,7 @@ dataset = pd.read_csv('salary_data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 1].values
 
+<<<<<<< HEAD
 # split the dataset into training and test set (use train_test_split(...))
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=1 / 3)
 
@@ -19,6 +20,17 @@ learning_algo.fit(X_train, y_train)  # this is where the learning happens
 
 # predict the test set results
 y_pred = learning_algo.predict(X_test)
+=======
+# TODO split the dataset into training and test set (use train_test_split(...))
+X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.33)
+
+# TODO fit Simple Linear Regression to the training set
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+
+# TODO predict the test set results
+y_pred = regressor.predict(X_test)
+>>>>>>> ef6970d (bungen)
 
 # plot the training set results
 plt.scatter(X_train, y_train, color='red')
@@ -28,10 +40,17 @@ plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.show()
 
+<<<<<<< HEAD
 # plot the test set results (similar to training set resolts)
 plt.scatter(X_test, y_test)
 # plot the trained regression again to compare with the test set
 plt.plot(X_train, learning_algo.predict(X_train), color='blue')
+=======
+# TODO plot the test set results (similar to training set resolts)
+# plot the trained regression again to compare with the test set
+plt.scatter(X_test, y_test, color='red')
+plt.plot(X_test, regressor.predict(X_test), color='blue')
+>>>>>>> ef6970d (bungen)
 plt.title('Salary vs Experience (Test set)')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')

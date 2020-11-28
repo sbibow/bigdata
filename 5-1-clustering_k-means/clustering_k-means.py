@@ -7,7 +7,7 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import scale
 
 # TODO number of clusters to be used in k-Means
-NUM_CLUSTERS = ...
+NUM_CLUSTERS = 15
 
 # make sure that random selection of clusters always happens in the same order
 # (to avoid plotting with different colors in subsequent runs)
@@ -18,10 +18,11 @@ df = pd.read_csv('wholesale_customers_data.csv', sep=',')
 data = scale(df)
 
 # TODO reduce dataset to two principal axes (for 2D plotting)
-reduced_data = ...
+pca = PCA(n_components=3)
+reduced_data = pca.fit_transform(data)
 
 # TODO run k-Means with selected number of clusters
-kmeans = ...
+kmeans = KMeans(n_clusters=NUM_CLUSTERS).fit(reduced_data)
 
 # do not worry about all the fancy plotting down there, this is just for visualization,
 # but doesn't add anything to the method
